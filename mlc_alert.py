@@ -1,3 +1,7 @@
+# Copyright 2019 James Kerns
+
+VERSION = '1.0'  # major.patch
+
 from datetime import datetime, timedelta
 import os
 import os.path as osp
@@ -56,7 +60,7 @@ def get_total_deviations_by_leaf_per_day(log_files):
         if pylinac.log_analyzer.is_tlog(osp.join(LOG_FOLDER, log)):
             tlog = pylinac.TrajectoryLog(osp.join(LOG_FOLDER, log))
             for idx, leaf in enumerate(tlog.axis_data.mlc.leaf_axes.values()):
-                leaf_deviations[idx] += np.sum(leaf.difference > LEAF_DEVIATION_THRESHOLD_MM / 10)
+                leaf_deviations[idx] += np.sum(np.abs(leaf.difference) > LEAF_DEVIATION_THRESHOLD_MM / 10)
     # convert the number of deviations to binary based on whether number was > deviation threshold per day
     for idx, num_deviations in leaf_deviations.items():
         if num_deviations > LEAF_DEVIATION_NUMBER_PER_DAY:
