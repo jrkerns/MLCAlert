@@ -9,7 +9,7 @@ The script can be set up to run automatically with a tool like cron or Windows T
 
 While this initial version is faithful to the manuscript, there are drawbacks to it. Namely, the triggers are not normalized
 to the distance traveled by the leaf. I.e. if your clinic is busy in general or your outer leaves move far less than your
-inner leaves (which is almost always the case) then this algorithm will not be as sensitive as it could be. Future versions
+inner leaves (which is almost always the case) then this algorithm will not be as accurate as it could be. Future versions
 will include leaf travel normalization.
 
 .. note::
@@ -84,7 +84,7 @@ First, `download <https://github.com/jrkerns/MLCAlert/archive/master.zip>`_ the 
 Now, use a text editor to open the `mlc_alert.py` file. You can use Notepad (it will be a bit garbled) or
 something more powerful like `Notepad++ <https://notepad-plus-plus.org/>`_.
 
-After the file is open, edit `lines 10-25 <https://github.com/jrkerns/MLCAlert/blob/master/mlc_alert.py#L10-L25>`_
+After the file is open, edit `these lines <https://github.com/jrkerns/MLCAlert/blob/master/mlc_alert.py#L14-L29>`_
 to match your clinic. The settings are described below:
 
 * `LOG_FOLDER` will be where your trajectory logs are stored on the I: drive.
